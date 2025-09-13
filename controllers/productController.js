@@ -40,6 +40,8 @@ export async function getAllProducts(req, res) {
 			// 		});
 			// 	});
 
+			// Using async-await
+
 			const products = await Product.find();
 		} else {
 			Product.find({ isAvailable: true })
