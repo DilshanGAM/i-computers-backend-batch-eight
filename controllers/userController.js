@@ -27,14 +27,15 @@ export function createUser(req, res) {
 export function loginUser(req, res) {
 	const email = req.body.email;
 	const password = req.body.password;
-
+	console.log("Login attempt for email: " + email);
 	User.find({ email: email }).then((users) => {
 		if (users[0] == null) {
-			res.json({
+			res.status(404).json({
 				message: "User not found",
 			});
 		} else {
 			const user = users[0];
+			console.log(user)
 
 			const isPasswordCorrect = bcrypt.compareSync(password, user.password);
 
