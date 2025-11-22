@@ -3,7 +3,7 @@ import Product from "../models/Product.js";
 import { isAdmin } from "./userController.js";
 
 export async function createOrder(req, res) {
-	console.log(req.body);
+
 	//ORD000001
 	if (req.user == null) {
 		res.status(401).json({
